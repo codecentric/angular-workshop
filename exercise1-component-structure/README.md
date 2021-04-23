@@ -11,8 +11,9 @@ This example consists of one component which
 
 ### Exercise:
  1. move the chart and chart-config to a presentational component 
- 3. add a click event to the chart which triggers the `randomize` method
- 2. move the table to a presentational component
+ 2. add a click event to the chart which triggers the `randomize` method
+ 3. move the table to a presentational component
+ 4. review your components and note how this refactoring reduced the cognitive complexity
 
 ### Hints:
 Keep the `randomize()` method in `app.component.ts`
