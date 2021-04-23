@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {ChartDataSets} from 'chart.js';
-import {BaseChartDirective, Label} from "ng2-charts";
+import {Label} from "ng2-charts";
 import {ChartComponent} from "./chart/chart.component";
 
 @Component({
@@ -34,10 +34,5 @@ export class AppComponent {
 
   private generateNumber(i: number): number {
     return Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);
-  }
-
-  // events
-  public chartClicked({event, active}: { event?: MouseEvent, active?: {}[] }): void {
-    console.log(event, active);
   }
 }
