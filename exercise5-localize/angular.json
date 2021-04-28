@@ -67,6 +67,12 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "de": {
+              "localize": ["de"]
+            },
+            "en": {
+              "localize": ["en-US"]
             }
           }
         },
@@ -78,6 +84,12 @@
           "configurations": {
             "production": {
               "browserTarget": "exercise5-localize:build:production"
+            },
+            "de": {
+              "browserTarget": "exercise5-localize:build:de"
+            },
+            "en": {
+              "browserTarget": "exercise5-localize:build:en"
             }
           }
         },
