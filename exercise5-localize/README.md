@@ -52,3 +52,19 @@ We start with a minimalistic app to learn how to utilize the `@angular/localize`
 
 ### Hints:
 In the config-file we use `de` as identifier (instead of `de-DE`) to prevent issues with JSON-keys that contain a `-`. 
+
+### Bonus tasks:
+Now that your app is running in multiple languages try to experiment a bit
+1. Change a text in your template
+  - to regenerate the `messages.xlf` file run
+    ```
+     ng extract-i18n --output-path src/locale
+    ``` 
+  - Note that the generated id changes each time you change a text
+  - define a custom id with the `@@`-prefix to keep generated files consistent
+     ```
+     <mat-label i18n="@@numberLabel">
+     ```
+  - try to use the same custom id multiple times. This id is unique and won't generate additional
+2. Add a translation that includes plural-forms depending on the selected number (see https://angular.io/guide/i18n#mark-plurals) 
+
