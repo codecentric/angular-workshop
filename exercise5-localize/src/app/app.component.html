@@ -1,11 +1,11 @@
-<h1>Localization Example</h1>
+<h1 i18n="number select title|The title of the app">Localization Example</h1>
 
 <mat-form-field>
-  <mat-label>
+  <mat-label i18n="select number label|call-to-action for the user to select a number">
     Select a Number
   </mat-label>
-  <input matInput type="number" [(ngModel)]="number">
+  <input matInput title="text to translate" i18n-title type="number" [(ngModel)]="number">
 </mat-form-field>
-<p>
+<p i18n>
   The selected number is: <span>{{number}}</span>
 </p>

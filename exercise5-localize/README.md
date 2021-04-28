@@ -1,27 +1,23 @@
-# Exercise5Localize
+# Exercise 5 internationalization (i18n)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+We start with a minimalistic app to learn how to utilize the `@angular/localize` module to build our app in different languages.
 
-## Development server
+### Exercise:
+1. add an `i18n` tag to each element that needs translation.
+2. run `ng extract-i18n --output-path src/locale`
+3. edit the translation file manually (for now)   
+4. edit the configuration in `angular.json`
+   - add the following config to the project `exercise5-localize`
+   ```
+   "i18n": {
+     "sourceLocale": "en-US",
+     "locales": {
+     "de": "src/locale/messages.de.xlf"
+     }
+   },
+   ```
+   - set `"localize": true,` in the build options
+5. run `ng build --prod`
+6. you should see two bundles `de` and `en-US` in the `dist` folder 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Hints:
