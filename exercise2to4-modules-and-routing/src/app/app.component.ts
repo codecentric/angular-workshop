@@ -6,5 +6,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'exercise2to4-modules-and-routing';
+  farms: Farm[] = [
+    {
+      name: "Rinderhof",
+      location: "Essen",
+      description: "Dies ist ein Bauernhof, welcher für die schönsten Rinder in ganz Essen bekannt ist"
+    },
+    {
+      name: "Schweinezucht",
+      location: "Dortmund",
+      description: "Hat einen überdurchschnittlich hohen Schweinefutterverbrauch"
+    }
+  ]
+
+  addFarm(farm) {
+    this.farms.push(farm)
+  }
+}
+
+export interface Farm {
+  name: string;
+  location: string;
+  description: string;
 }
