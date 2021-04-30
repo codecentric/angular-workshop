@@ -19,6 +19,8 @@ export class AppComponent {
     }
   ]
 
+  selectedFarm: Farm;
+
   addFarm(farm) {
     this.farms.push(farm)
   }

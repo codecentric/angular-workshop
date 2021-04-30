@@ -11,11 +11,17 @@ import { FarmFormularComponent } from './farm-formular/farm-formular.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
+import { FarmListComponent } from './farm-list/farm-list.component';
+import { FarmInfoHeaderComponent } from './farm-info-header/farm-info-header.component';
+import { FarmDetailsComponent } from './farm-details/farm-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FarmFormularComponent
+    FarmFormularComponent,
+    FarmListComponent,
+    FarmInfoHeaderComponent,
+    FarmDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,16 @@
-<mat-form-field>
-  <mat-label>Name</mat-label>
-  <input matInput [(ngModel)]="name">
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Ort</mat-label>
-  <input matInput [(ngModel)]="location">
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Beschreibung</mat-label>
-  <input matInput [(ngModel)]="description">
-</mat-form-field>
+<div class="formular">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Ort</mat-label>
+    <input matInput [(ngModel)]="location">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Beschreibung</mat-label>
+    <input matInput [(ngModel)]="description">
+  </mat-form-field>
 
-<button mat-raised-button color="primary" (click)="addFarm()">Hinzufügen</button>
+  <button mat-raised-button color="primary" (click)="addFarm()">Hinzufügen</button>
+</div>
