@@ -12,4 +12,4 @@ We start with a small app that displays a list of farms and allows to add new on
 5. Move the service to a `core`-Folder and inject it to the root-module via `providedIn: 'root'`
 
 ### Hints:
-To use the Components from the FeatureModules in the HTML auf the AppModule you should export and import them.
+To use the Components from the FeatureModules in the HTML of the AppModule you need to export them from the FeatureModule.
