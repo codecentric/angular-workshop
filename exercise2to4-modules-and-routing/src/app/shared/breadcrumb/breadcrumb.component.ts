@@ -25,10 +25,6 @@ export class BreadcrumbComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.updateBreadcrumb()
-  }
-
-  updateBreadcrumb() {
     this.breadcrumb = this.breadcrumbService.buildBreadCrumb(this.activatedRoute);
   }
 }

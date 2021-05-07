@@ -2,7 +2,8 @@
   <span>
     <ng-container *ngFor="let breadcrumb of breadcrumb; let currentPage = last">
       <ng-container *ngIf="breadcrumb.label && !currentPage">
-        <a routerLink="{{ breadcrumb.resolvedUrl }}">{{ breadcrumb.label }}</a>
+        <!-- TODO: add a link for each breadcrumb that displays its label and routes to the corresponding component -->
+        Some Breadcrumb
         <span> > </span>
       </ng-container>
     </ng-container>

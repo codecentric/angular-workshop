@@ -6,17 +6,11 @@ import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 })
 export class BreadcrumbService {
   buildBreadCrumb(route: ActivatedRoute): BreadCrumb[] {
-    debugger;
     const routePath = route.snapshot.pathFromRoot;
-    return routePath
-      .map(
-        (snapshot) =>
-          ({
-            label: snapshot?.data?.breadcrumb,
-            resolvedUrl: this.getResolvedUrl(snapshot),
-          } as BreadCrumb)
-      )
-      .filter((breadcrumb) => breadcrumb.label);
+
+    // TODO: map the "routePath" to Breadcrumbs and filter them so that we return only Breadcrumbs that contain a label.
+    //  Note that a method to get a resolvedUrl from a RouteSnapshot is already implemented below.
+    return []
   }
 
   /**

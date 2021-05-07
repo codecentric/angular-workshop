@@ -23,35 +23,20 @@ const routes: Routes = [
       },
       {
         path: 'dashboard',
-        data: {
-          breadcrumb: 'Dashboard',
-        },
         children: [
           {
             path: '', component: DashboardComponent,
-            data: {
-              breadcrumb: '',
-            },
           },
           {
             path: 'details', component: FarmDetailsComponent,
-            data: {
-              breadcrumb: 'Detail-Ansicht',
-            },
           },
           {
             path: 'create', component: FarmFormularComponent,
-            data: {
-              breadcrumb: 'Farm hinzufügen',
-            },
           },
         ]
       },
       {
         path: 'add',
-        data: {
-          breadcrumb: 'Farm hinzufügen',
-        },
         component: FarmFormularComponent
       },
     ]
