@@ -56,5 +56,7 @@ We will now take a deeper look at the router and will need a more complex routin
 
 1. Create a new branch based on `exercise4-starting-point`. Here we
     - moved all components from the previous exercise to the `FarmModule` to increase the complexity of the routing
-    - added a `BreadcrumbComponent` to each route
+    - added a `BreadcrumbComponent` to each route (we could've added a single breadcrumb to `app.component` for this example but in a real application you will probably want some control over the breadcrumbs from within your components)
+    - added a custom `data` attribute with the breadcrumb-labels to some routes. 
+    - added a `BreadcrumbService` which you will use to get all required information from the routes 
   
