@@ -4,6 +4,7 @@ import {FarmDetailsComponent} from './farm-details/farm-details.component';
 import {FarmFormularComponent} from './farm-formular/farm-formular.component';
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {FarmHomeComponent} from "./farm-home/farm-home.component";
+import {FarmSelectedGuard} from "./farm-selected.guard";
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
             data: {
               breadcrumb: 'Detail-Ansicht',
             },
+            canActivate: [FarmSelectedGuard]
           },
           {
             path: 'create', component: FarmFormularComponent,

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { FarmsService } from 'src/app/core/farms.service';
 import { Farm } from 'src/app/shared/models/farm';
 
@@ -14,7 +14,7 @@ export class FarmFormularComponent implements OnInit {
   location: string;
   description: string;
 
-  constructor(private readonly farmService: FarmsService, private readonly router: Router) {
+  constructor(private readonly farmService: FarmsService, private readonly router: Router, private readonly route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -28,6 +28,7 @@ export class FarmFormularComponent implements OnInit {
         description: this.description
       })
 
-      this.router.navigateByUrl("/dashboard")
+      this.router.navigate(['..'], {relativeTo: this.route})
+
   }
 }

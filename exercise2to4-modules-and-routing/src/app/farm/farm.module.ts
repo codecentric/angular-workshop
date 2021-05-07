@@ -11,7 +11,8 @@ import {FarmRoutingModule} from './farm-routing.module';
 import {FarmInfoHeaderComponent} from "./farm-info-header/farm-info-header.component";
 import {FarmListComponent} from "./farm-list/farm-list.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
-import { FarmHomeComponent } from './farm-home/farm-home.component';
+import {FarmHomeComponent} from './farm-home/farm-home.component';
+import {FarmSelectedGuard} from "./farm-selected.guard";
 
 @NgModule({
   declarations: [FarmDetailsComponent, FarmFormularComponent, FarmInfoHeaderComponent, FarmListComponent, DashboardComponent, FarmHomeComponent],
@@ -27,6 +28,8 @@ import { FarmHomeComponent } from './farm-home/farm-home.component';
   exports: [
     FarmFormularComponent,
     FarmDetailsComponent
-  ]
+  ],
+  providers: [FarmSelectedGuard]
 })
-export class FarmModule { }
+export class FarmModule {
+}
