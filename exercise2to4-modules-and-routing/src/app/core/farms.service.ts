@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Farm } from '../shared/models/farm';
+import {Injectable} from '@angular/core';
+import {Farm} from '../shared/models/farm';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FarmsService {
 
-  farms: Farm[] = [
+  private farms: Farm[] = [
     {
       name: "Rinderhof",
       location: "Essen",
@@ -19,7 +19,11 @@ export class FarmsService {
     }
   ]
 
-  selectedFarm: Farm;
+  private selectedFarm: Farm;
+
+  getFarms() {
+    return this.farms
+  }
 
   addFarm(farm) {
     this.farms.push(farm)
@@ -29,5 +33,11 @@ export class FarmsService {
     this.selectedFarm = farm;
   }
 
-  constructor() { }
+  deselectFarm(){
+    this.selectedFarm = null;
+  }
+
+  getSelectedFarm() {
+    return this.selectedFarm
+  }
 }

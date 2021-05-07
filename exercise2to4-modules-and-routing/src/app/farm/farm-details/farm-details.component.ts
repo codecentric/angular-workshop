@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { FarmsService } from 'src/app/core/farms.service';
-import { Farm } from 'src/app/shared/models/farm';
+import {Component, OnInit} from '@angular/core';
+import {FarmsService} from 'src/app/core/farms.service';
 
 @Component({
   selector: 'app-farm-details',

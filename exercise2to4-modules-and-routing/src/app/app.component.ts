@@ -8,7 +8,6 @@ import { Farm } from './shared/models/farm';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
   constructor(public farmService: FarmsService){}
 
 }
