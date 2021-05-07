@@ -6,7 +6,6 @@ import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 })
 export class BreadcrumbService {
   buildBreadCrumb(route: ActivatedRoute): BreadCrumb[] {
-    debugger;
     const routePath = route.snapshot.pathFromRoot;
     return routePath
       .map(
