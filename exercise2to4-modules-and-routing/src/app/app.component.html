@@ -4,13 +4,6 @@
 </mat-toolbar>
 
 <div class="app-content">
-  <ng-container *ngIf="farmService.getSelectedFarm()">
-    <app-farm-details></app-farm-details>
-  </ng-container>
-  <ng-container *ngIf="!farmService.getSelectedFarm()">
-    <app-farm-info-header></app-farm-info-header>
-    <app-farm-list></app-farm-list>
-    <app-farm-formular></app-farm-formular>
-  </ng-container>
+  <router-outlet></router-outlet>
 </div>
 

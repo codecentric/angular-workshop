@@ -7,6 +7,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { SharedModule } from '../shared/shared.module';
+import { FarmRoutingModule } from './farm-routing.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    SharedModule
+    SharedModule,
+    FarmRoutingModule
   ],
   exports: [
     FarmFormularComponent,
