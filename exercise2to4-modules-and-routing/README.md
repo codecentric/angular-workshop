@@ -60,16 +60,23 @@ But we will need a more complex routing structure so that we can properly observ
   - added a custom `data` attribute with the breadcrumb-labels to some routes.
   - added a `BreadcrumbService` which you will use to get all required information from the routes
   - added a `BreadcrumbComponent` to most components (we could've added a single breadcrumb to `app.component` for this example but in a real application you will probably want some control over the breadcrumbs from within your components)
-2. add a `data` attribute to each route in `farm-routing.module` and add labels for the breadcrumbs in there
-3. locate the `BreadcrumbComponent` and check its implementation. It should
+2. Up to now we used absolute links which break easily and prevent us from using Components in different places throughout the app.
+  - replace the broken links that navigate back from the `FarmDetailsComponent` and the `FarmFormularComponent` with relative links
+3. add a `data` attribute to each route in `farm-routing.module` and add labels for the breadcrumbs in there
+4. locate the `BreadcrumbComponent` and check its implementation. It should
   - display the current Breadcrumb as title-element and list the rest as links
   - call the `BreadcrumbService` to generate breadcrumbs based on the current route
-4. locate the `BreadcrumbService` and implement a function that returns a list of breadcrumbs by fetching all relevant information from the current route
-5. return to the `BreadcrumbComponent` and add the missing links for the breadcrumbs
+5. locate the `BreadcrumbService` and implement a function that returns a list of breadcrumbs by fetching all relevant information from the current route
+6. return to the `BreadcrumbComponent` and add the missing links for the breadcrumbs
+7. create a `RouteGuard` for the `FarmDetailsComponent` that prevents the user from navigating there when no farm is currently selected (or the currently selected farm has no name)
 
 ### Hints:
 In this example we only use a single `router-outlet` which means that angular looks for the first route that displays a `component` and ignores all further child-routes.
 
 Because of this the route that contains the `Home`-breadcrumb is not the same as the route with the `FarmHomeComponent`:
 - if we move both to the parent route, angular would ignore all child-routes
-- if we move both to the child route, the `Home`-breadcrumb would not be displayed as parent of any other route 
+- if we move both to the child route, the `Home`-breadcrumb would not be displayed as parent of any other route
+
+_____
+
+Remember to register any `RouteGuards` as provider in your module. 
