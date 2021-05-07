@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Farm} from "../app.component";
+import { FarmsService } from 'src/app/core/farms.service';
+import { Farm } from 'src/app/shared/models/farm';
 
 @Component({
   selector: 'app-farm-details',
@@ -7,13 +8,7 @@ import {Farm} from "../app.component";
   styleUrls: ['./farm-details.component.scss']
 })
 export class FarmDetailsComponent implements OnInit {
-  @Input()
-  farm: Farm
-
-  @Output()
-  backToDashboard: EventEmitter<void> = new EventEmitter
-
-  constructor() { }
+  constructor(public readonly farmService: FarmsService) { }
 
   ngOnInit(): void {
   }

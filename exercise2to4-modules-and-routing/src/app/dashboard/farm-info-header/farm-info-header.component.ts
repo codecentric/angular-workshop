@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Farm} from "../app.component";
+import { FarmsService } from 'src/app/core/farms.service';
+import { Farm } from 'src/app/shared/models/farm';
 
 @Component({
   selector: 'app-farm-info-header',
@@ -7,10 +8,7 @@ import {Farm} from "../app.component";
   styleUrls: ['./farm-info-header.component.scss']
 })
 export class FarmInfoHeaderComponent implements OnInit {
-  @Input()
-  farms: Farm[]
-
-  constructor() { }
+  constructor(public readonly farmService: FarmsService) { }
 
   ngOnInit(): void {
   }

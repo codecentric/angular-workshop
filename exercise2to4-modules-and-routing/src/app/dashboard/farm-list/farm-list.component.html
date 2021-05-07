@@ -1,0 +1,3 @@
+<div class="content">
+  <app-farm-card (click)="farmService.selectedFarm = farm" *ngFor="let farm of farmService.farms" [farm]="farm"></app-farm-card>
+</div>

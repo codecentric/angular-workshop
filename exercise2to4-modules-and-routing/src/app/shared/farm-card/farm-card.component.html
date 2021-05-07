@@ -1,5 +1,4 @@
-<div class="content">
-  <mat-card class="farm-card" *ngFor="let farm of farms" (click)="farmClicked.emit(farm)">
+<mat-card class="farm-card">
     <mat-card-header>
       <mat-card-title>{{farm.name}}</mat-card-title>
       <mat-card-subtitle>{{farm.location}}</mat-card-subtitle>
@@ -12,4 +11,3 @@
     <mat-card-actions>
     </mat-card-actions>
   </mat-card>
-</div>
