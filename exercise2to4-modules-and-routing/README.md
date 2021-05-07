@@ -50,3 +50,11 @@ The syntax for lazy-loading modules is
 ```
 
 Remember to export the `RouterModule` from each feature-routing-module 
+
+### Exercise 4:
+We will now take a deeper look at the router and will need a more complex routing structure.  
+
+1. Create a new branch based on `exercise4-starting-point`. Here we
+    - moved all components from the previous exercise to the `FarmModule` to increase the complexity of the routing
+    - added a `BreadcrumbComponent` to each route
+  

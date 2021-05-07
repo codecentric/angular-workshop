@@ -3,21 +3,14 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
-    loadChildren: () =>
-      import('./dashboard/dashboard.module').then(
-        (module) => module.DashboardModule
-      ),
-  },
-  {
     path: 'farm',
     loadChildren: () =>
       import('./farm/farm.module').then(
         (module) => module.FarmModule
       ),
   },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: 'dashboard' },
+  { path: '', redirectTo: 'farm', pathMatch: 'full' },
+  { path: '**', redirectTo: 'farm' },
 ];
 
 @NgModule({
