@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Farm} from "../app.component";
+import { FarmsService } from 'src/app/core/farms.service';
+import { Farm } from 'src/app/shared/models/farm';
 
 @Component({
   selector: 'app-farm-formular',
@@ -12,17 +13,14 @@ export class FarmFormularComponent implements OnInit {
   location: string;
   description: string;
 
-  @Output()
-  farmAdded: EventEmitter<Farm> = new EventEmitter()
-
-  constructor() {
+  constructor(private readonly farmService: FarmsService) {
   }
 
   ngOnInit(): void {
   }
 
   addFarm() {
-    this.farmAdded.emit(
+    this.farmService.addFarm(
       {
         name: this.name,
         location: this.location,

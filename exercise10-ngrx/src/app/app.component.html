@@ -4,14 +4,13 @@
 </mat-toolbar>
 
 <div class="app-content">
-  <ng-container *ngIf="selectedFarm as farm">
-    <app-farm-details [farm]="farm" (backToDashboard)="selectedFarm = null"></app-farm-details>
+  <ng-container *ngIf="farmService.getSelectedFarm()">
+    <app-farm-details></app-farm-details>
   </ng-container>
-  <ng-container *ngIf="!selectedFarm">
-    <app-farm-info-header [farms]="farms"></app-farm-info-header>
-    <app-farm-list [farms]="farms" (farmClicked)="selectedFarm = $event"></app-farm-list>
-    <app-farm-formular (farmAdded)="addFarm($event)"></app-farm-formular>
+  <ng-container *ngIf="!farmService.getSelectedFarm()">
+    <app-farm-info-header></app-farm-info-header>
+    <app-farm-list></app-farm-list>
+    <app-farm-formular></app-farm-formular>
   </ng-container>
-
 </div>
 
