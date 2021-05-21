@@ -1,3 +1,3 @@
 <h3>Farm-Details</h3>
-<app-farm-card [farm]="farmService.getSelectedFarm()"></app-farm-card>
-<button mat-raised-button color="primary" (click)="farmService.deselectFarm()">Zurück</button>
+<app-farm-card [farm]="selectedFarm$ | async"></app-farm-card>
+<button mat-raised-button color="primary" (click)="deSelectFarm()">Zurück</button>

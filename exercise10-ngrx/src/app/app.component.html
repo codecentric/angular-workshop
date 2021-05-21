@@ -4,10 +4,10 @@
 </mat-toolbar>
 
 <div class="app-content">
-  <ng-container *ngIf="farmService.getSelectedFarm()">
+  <ng-container *ngIf="selectedFarm$ | async">
     <app-farm-details></app-farm-details>
   </ng-container>
-  <ng-container *ngIf="!farmService.getSelectedFarm()">
+  <ng-container *ngIf="!(selectedFarm$ | async)">
     <app-farm-info-header></app-farm-info-header>
     <app-farm-list></app-farm-list>
     <app-farm-formular></app-farm-formular>

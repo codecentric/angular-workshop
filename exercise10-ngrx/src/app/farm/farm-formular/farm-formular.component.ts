@@ -1,6 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { FarmsService } from 'src/app/core/farms.service';
-import { Farm } from 'src/app/shared/models/farm';
+import {FarmsService} from 'src/app/core/farms.service';
+import {Farm} from 'src/app/shared/models/farm';
+import {Store} from "@ngrx/store";
+import {AppState} from "../../ngrx/farm/farm.selectors";
+import {addFarmAction} from "../../ngrx/farm/farm.actions";
 
 @Component({
   selector: 'app-farm-formular',
@@ -13,18 +16,17 @@ export class FarmFormularComponent implements OnInit {
   location: string;
   description: string;
 
-  constructor(private readonly farmService: FarmsService) {
+  constructor(private readonly store: Store<AppState>) {
   }
 
   ngOnInit(): void {
   }
 
   addFarm() {
-    this.farmService.addFarm(
-      {
-        name: this.name,
-        location: this.location,
-        description: this.description
-      })
+    this.store.dispatch(addFarmAction({
+      name: this.name,
+      location: this.location,
+      description: this.description
+    }))
   }
 }
