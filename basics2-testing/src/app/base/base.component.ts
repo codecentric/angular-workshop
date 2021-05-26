@@ -8,7 +8,6 @@ import { NumberService } from '../number.service';
 })
 export class BaseComponent implements OnInit {
   number = 0;
-  displayChild = false;
 
   constructor(public readonly random: NumberService) {}
 

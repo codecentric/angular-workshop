@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class NumberService {
-  numberHistory: Array<number> = [];
+  private numberHistory: Array<number> = [];
 
   constructor() {}
 
@@ -16,6 +16,10 @@ export class NumberService {
   }
 
   getPreviousNumber() {
-    return this.numberHistory[this.numberHistory.length - 2];
+    return this.numberHistory[this.numberHistory.length - 1];
+  }
+
+  getNumberHistory() {
+    return this.numberHistory;
   }
 }
