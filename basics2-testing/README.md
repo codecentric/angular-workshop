@@ -24,7 +24,7 @@ We use the project setup that we created in the first exercise (with just a bit 
    - enable the tests and check why they fail
    - fix the test-setup for `ChildComponent`
 8. Write a parameterized test for the `ModifyPipe`
-9. check the code-coverage of your tests with `ng test --no-watch --code-coverage`
+9. run `ng test --no-watch --code-coverage` to check if you reached 100% code-coverage with your tests
 
 ## Development server
 
