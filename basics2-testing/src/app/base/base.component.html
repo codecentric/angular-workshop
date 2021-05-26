@@ -1,7 +1,11 @@
-<h3>Base-Component</h3>
+<h2>We will use this (almost) empty app to take a look at Unittests.</h2>
 
-<span>random number</span>
-<pre>{{ number | number }}</pre>
+<p>
+  <button (click)="generateNumber()">Generate new number</button>
+</p>
+<pre>{{ number }}</pre>
 
-<span>modified number</span>
-<pre>{{ number | modify | modify | number }}</pre>
+<div *ngIf="displayChild">
+  <hr />
+  <app-child></app-child>
+</div>

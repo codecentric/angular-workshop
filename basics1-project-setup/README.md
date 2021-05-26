@@ -18,12 +18,12 @@ We will use the angular CLI to setup a new project (and check that our tooling i
     cd src/app
     
     ng generate component base
-    ng generate service random
+    ng generate service number
     ng generate pipe modify
     ```
    
 4. the CLI already registered everything in the `AppModule`. So there is no more setup needed to use the generated elements:
-    - write a `getRandomNumber()` method in the `RandomService`
+    - write a `getRandomNumber()` method in the `NumberService`
     - let the `ModifyPipe` add 2 to the `value` 
     - Use the `BaseComponent` to fetch a random number from the service and apply the `ModifyPipe` (twice)      
 

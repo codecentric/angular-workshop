@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RandomService } from '../random.service';
+import { NumberService } from '../number.service';
 
 @Component({
   selector: 'app-base',
@@ -8,10 +8,15 @@ import { RandomService } from '../random.service';
 })
 export class BaseComponent implements OnInit {
   number = 0;
+  displayChild = false;
 
-  constructor(private readonly random: RandomService) {}
+  constructor(public readonly random: NumberService) {}
 
   ngOnInit(): void {
+    this.generateNumber();
+  }
+
+  generateNumber() {
     this.number = this.random.getRandomNumber();
   }
 }
