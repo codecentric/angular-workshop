@@ -6,4 +6,4 @@
 <span>modified number</span>
 <pre>{{ number | modify | modify | number }}</pre>
 
-<button>Generate new number</button>
+<button (click)="numberGenerated.emit()">Generate new number</button>

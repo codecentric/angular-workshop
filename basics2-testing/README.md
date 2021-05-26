@@ -23,9 +23,7 @@ We use the project setup that we created in the first exercise (with just a bit 
 7. The tests for `ChildComponent` are currently disabled via `xdescribe()`
    - enable the tests and check why they fail
    - fix the test-setup for `ChildComponent`
-
-
-### Hints:
+8. Write a parameterized test for the `ModifyPipe`
 
 ## Development server
 

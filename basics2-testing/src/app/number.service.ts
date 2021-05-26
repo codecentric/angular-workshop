@@ -16,7 +16,7 @@ export class NumberService {
   }
 
   getPreviousNumber() {
-    return this.numberHistory[this.numberHistory.length - 1];
+    return this.numberHistory[this.numberHistory.length - 2];
   }
 
   getNumberHistory() {

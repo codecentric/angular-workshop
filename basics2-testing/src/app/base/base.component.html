@@ -6,4 +6,4 @@
 <pre>{{ number }}</pre>
 
 <hr />
-<app-child></app-child>
+<app-child [number]="number" (numberGenerated)="generateNumber()"></app-child>
