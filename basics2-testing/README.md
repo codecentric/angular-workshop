@@ -19,6 +19,10 @@ We use the project setup that we created in the first exercise (with just a bit 
    - note that the `ChildComponent` is not getting rendered in the test since it is not registered in the `TestBed`-setup
 4. make `number` an `@Input` property of the `ChildComponent` and pass down the generated number from the `BaseComponent`
 5. add an `@Output` property to the `ChildComponent` to generate a new random number when the button is clicked
+6. Add a `ChildComponentMock` to the tests of the `BaseComponent`
+7. The tests for `ChildComponent` are currently disabled via `xdescribe()`
+   - enable the tests and check why they fail
+   - fix the test-setup for `ChildComponent`
 
 
 ### Hints:
