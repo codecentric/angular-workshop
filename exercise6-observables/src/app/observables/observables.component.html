@@ -1,0 +1,34 @@
+<h1>Observables</h1>
+<p>Die aktuellen Daten der Observables:</p>
+
+<pre>
+  Interval - Subscriber 1:
+  {{ intervalSubscriber1Value || "not initialized" }}
+  Interval - Subscriber 2:
+  {{ intervalSubscriber2Value || "not initialized" }}
+
+  Subject - Subscriber 1:
+  {{ subjectSubscriber1Value || "not initialized" }}
+  Subject - Subscriber 2:
+  {{ subjectSubscriber2Value || "not initialized" }}
+</pre>
+
+<p>
+  <button
+    mat-raised-button
+    style="margin-left: 16px"
+    (click)="nextSubjectValue()"
+  >
+    Nächster Subject Wert
+  </button>
+  <button
+    mat-raised-button
+    style="margin-left: 16px"
+    (click)="toggleSecondSubjectSubscriber()"
+  >
+    Toggle zweite Subject-Subscription
+  </button>
+</p>
+<button mat-raised-button color="primary" routerLink="/home">
+  Zur Startseite
+</button>
