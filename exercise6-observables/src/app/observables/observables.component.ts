@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BehaviorSubject, interval, Observable, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './observables.component.html',
   styleUrls: ['./observables.component.scss'],
 })
-export class ObservablesComponent implements OnInit, OnDestroy {
+export class ObservablesComponent implements OnInit {
   // Interval-Observable and Variables for Subscribers
   interval$: Observable<number>;
 
@@ -31,79 +31,25 @@ export class ObservablesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.setupInterval();
-    this.sendHttpRequests();
     this.setupSubject();
   }
 
   setupInterval() {
-    this.interval$ = interval(1000);
-
-    // first subscription
-    this.intervalSubscription1 = this.interval$.subscribe((value) => {
-      console.log(`subscriber 1 received: ${value}`);
-      this.intervalSubscriber1Value = value;
-    });
-
-    // second subscription after 5 seconds
-    setTimeout(() => {
-      this.intervalSubscription2 = this.interval$.subscribe((value) => {
-        console.log('subscriber 2 received: ' + value);
-        this.intervalSubscriber2Value = value;
-      });
-    }, 5000);
+    // TODO: initialize this.interval$
+    // TODO: add first subscription
+    // TODO: add second subscription after 5 seconds
   }
 
   setupSubject() {
-    this.behaviourSubject$ = new BehaviorSubject(0);
-    this.subjectSubscription1 = this.behaviourSubject$.subscribe((value) => {
-      console.log('subject subscriber 1 received value : ' + value);
-      this.subjectSubscriber1Value = value;
-    });
-
-    this.nextSubjectValue();
-    this.nextSubjectValue();
-
-    this.addSecondSubjectSubscription();
-
-    this.nextSubjectValue();
-    this.nextSubjectValue();
-  }
-
-  addSecondSubjectSubscription() {
-    this.subjectSubscription2 = this.behaviourSubject$.subscribe((value) => {
-      console.log('subject subscriber 2 received value : ' + value);
-      this.subjectSubscriber2Value = value;
-    });
+    // TODO: initialize this.behaviourSubject$
+    // TODO: add subscriptions
   }
 
   nextSubjectValue() {
-    this.behaviourSubject$.next(this.behaviourSubject$.value + 1);
+    throw Error('not implemented!');
   }
 
   toggleSecondSubjectSubscriber() {
-    if (this.isSecondSubscriptionActive) {
-      console.log('unsubscribed from subject!');
-      this.subjectSubscription2.unsubscribe();
-      this.subjectSubscriber2Value = 0;
-      this.isSecondSubscriptionActive = false;
-    } else {
-      console.log('created new subscription');
-      this.addSecondSubjectSubscription();
-      this.isSecondSubscriptionActive = true;
-    }
-  }
-
-  sendHttpRequests() {
-    const httpRequest$ = this.http.get('https://google.com');
-
-    httpRequest$.subscribe();
-    httpRequest$.subscribe();
-  }
-
-  ngOnDestroy(): void {
-    this.intervalSubscription1?.unsubscribe();
-    this.intervalSubscription2?.unsubscribe();
-    this.subjectSubscription1?.unsubscribe();
-    this.subjectSubscription2?.unsubscribe();
+    throw Error('not implemented!');
   }
 }
