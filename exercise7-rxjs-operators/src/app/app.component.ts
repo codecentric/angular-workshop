@@ -1,14 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import {
-  catchError,
-  debounceTime,
-  filter,
-  map,
-  startWith,
-  switchMap,
-  tap,
-} from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Customer, CustomerService } from './core/customer.service';
 import { Address, AddressService } from './core/address.service';
 
@@ -29,37 +20,9 @@ export class AppComponent implements OnInit {
     private readonly addressService: AddressService
   ) {}
 
-  ngOnInit(): void {
-    this.validatedCustomerNumber$ = this.customerNumber$.pipe(
-      debounceTime(500),
-      filter((customerNumber) => this.isNumeric(customerNumber)),
-      startWith('')
-    );
+  ngOnInit(): void {}
 
-    this.customer$ = this.validatedCustomerNumber$.pipe(
-      switchMap((customerNumber) => this.getCustomer(customerNumber))
-    );
-
-    this.address$ = this.customer$.pipe(
-      switchMap((customer: Customer | null) => this.getAddress(customer))
-    );
-  }
-
-  updateCustomerNumber(customerNumber: string) {
-    this.customerNumber$.next(customerNumber);
-  }
-
-  private getCustomer(customerNumber: string) {
-    return this.customerService
-      .getUser(customerNumber)
-      .pipe(catchError(() => of(null)));
-  }
-
-  private getAddress(customer: Customer | null) {
-    return this.addressService
-      .getAddress(customer?.addressId || '')
-      .pipe(catchError(() => of(null)));
-  }
+  updateCustomerNumber(customerNumber: string) {}
 
   private isNumeric(input: string) {
     return !isNaN(+input);
