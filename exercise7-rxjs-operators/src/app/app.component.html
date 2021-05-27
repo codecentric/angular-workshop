@@ -1,0 +1,49 @@
+<h1>Übung 7 - RxJS Operatoren</h1>
+
+<p>Geben Sie Ihre Kundennummer ein, um die zugehörige Adresse anzuzeigen</p>
+
+<mat-form-field>
+  <mat-label>Kundennummer</mat-label>
+  <input
+    matInput
+    type="text"
+    [(ngModel)]="customerNumber"
+    (ngModelChange)="updateCustomerNumber($event)"
+  />
+  <button mat-raised-button></button>
+</mat-form-field>
+
+<p>
+  <ng-container *ngIf="address$ | async as address">
+    Die hinterlegte Addresse für den Nutzer ist die {{ address.street }}
+    {{ address.streetNr }}
+  </ng-container>
+  <ng-container *ngIf="!(address$ | async)">
+    Zu der eingegebenen Kundennummer wurde keine Addresse gefunden
+  </ng-container>
+</p>
+
+<hr />
+<p>In den Testdaten ist nur eine valide Kundennummer hinterlegt</p>
+<pre>
+  1234
+</pre>
+
+Debugging Ausgaben:
+<pre>
+  Kundennummer (Nutzereingabe):
+  {{ customerNumber }}
+
+  Kundennummer (Observable):
+  {{ customerNumber$ | async }}
+
+  valide Kundennummer:
+  {{ validatedCustomerNumber$ | async }}
+
+  Kunde:
+  {{ customer$ | async | json }}
+
+  Addresse:
+  {{ address$ | async | json }}
+
+</pre>
