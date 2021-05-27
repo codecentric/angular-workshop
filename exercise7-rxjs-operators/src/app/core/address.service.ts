@@ -19,6 +19,7 @@ export class AddressService {
   ];
 
   getAddress(addressId: string): Observable<Address | null> {
+    console.log(`Address request received for addressId: ${addressId}`);
     const address = this.addresses.find(
       (address) => address.addressId === addressId
     );

@@ -16,6 +16,7 @@ export class CustomerService {
   ];
 
   getUser(customerNumber: string): Observable<Customer | null> {
+    console.log(`User request received for customerNumber: ${customerNumber}`);
     const customer = this.customers.find(
       (customer) => customer.customerNumber === customerNumber
     );

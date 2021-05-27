@@ -49,19 +49,19 @@ export class AppComponent implements OnInit {
     this.customerNumber$.next(customerNumber);
   }
 
-  getCustomer(customerNumber: string) {
+  private getCustomer(customerNumber: string) {
     return this.customerService
       .getUser(customerNumber)
       .pipe(catchError(() => of(null)));
   }
 
-  getAddress(customer: Customer | null) {
+  private getAddress(customer: Customer | null) {
     return this.addressService
       .getAddress(customer?.addressId || '')
       .pipe(catchError(() => of(null)));
   }
 
-  isNumeric(input: string) {
+  private isNumeric(input: string) {
     return !isNaN(+input);
   }
 }
