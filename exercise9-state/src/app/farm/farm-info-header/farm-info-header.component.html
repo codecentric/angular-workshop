@@ -1,1 +1,4 @@
-<p>Bisher wurden {{farmService.getFarms().length}} Höfe in insgesamt {{getUniqueLocations(farmService.getFarms()).length}} Standorten erfasst</p>
+
+<ng-container *ngIf="(farms$ | async) as farms">
+    <p>Bisher wurden {{farms.length}} Höfe in insgesamt {{getUniqueLocations(farms).length}} Standorten erfasst</p>
+</ng-container>

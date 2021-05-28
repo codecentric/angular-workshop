@@ -13,7 +13,9 @@
       "description": "Hat einen überdurchschnittlich hohen Schweinefutterverbrauch"
     },
     {
-      "test": "test",
+      "name": "Test",
+      "location": "Test",
+      "description": "Test",
       "id": 3
     }
   ]

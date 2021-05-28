@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import { Observable } from 'rxjs';
 import {Farm} from '../shared/models/farm';
 
 @Injectable({
@@ -6,29 +8,22 @@ import {Farm} from '../shared/models/farm';
 })
 export class FarmsService {
 
-  private farms: Farm[] = [
-    {
-      id: 1,
-      name: "Rinderhof",
-      location: "Essen",
-      description: "Dies ist ein Bauernhof, welcher für die schönsten Rinder in ganz Essen bekannt ist"
-    },
-    {
-      id: 2,
-      name: "Schweinezucht",
-      location: "Dortmund",
-      description: "Hat einen überdurchschnittlich hohen Schweinefutterverbrauch"
-    }
-  ]
+  constructor(private readonly httpClient: HttpClient){
+
+  }
 
   private selectedFarm: Farm;
 
-  getFarms() {
-    return this.farms
+  getFarms(): Observable<Farm[]> {
+    return this.httpClient.get<Farm[]>("http://localhost:3000/farms")
+  }
+
+  getFarm(id: string): Observable<Farm> {
+    return this.httpClient.get<Farm>(`http://localhost:3000/farms/${id}`)
   }
 
   addFarm(farm) {
-    this.farms.push(farm)
+    return this.httpClient.post("http://localhost:3000/farms", farm)
   }
 
   selectFarm(farm) {

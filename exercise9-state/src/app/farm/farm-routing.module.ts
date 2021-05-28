@@ -35,11 +35,10 @@ const routes: Routes = [
             },
           },
           {
-            path: 'details', component: FarmDetailsComponent,
+            path: ':id', component: FarmDetailsComponent,
             data: {
               breadcrumb: 'Detail-Ansicht',
             },
-            canActivate: [FarmSelectedGuard]
           },
           {
             path: 'create', component: FarmFormularComponent,
