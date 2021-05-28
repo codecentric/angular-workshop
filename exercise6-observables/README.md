@@ -9,7 +9,7 @@ In this exercise we will create some basic observables and subjects to experimen
    - create a `console.log` message with an identifier for the observer and the emitted value 
    - set `intervalSubscriber1Value` to the emitted value 
 4. Wait 5 seconds (by using `setTimeout()`) and subscribe a second time to the observable 
-  - create a `console.log` message with an identifier for the observer and the emitted value 
+   - create a `console.log` message with an identifier for the observer and the emitted value 
    - set `intervalSubscriber2Value` to the emitted value
 5. Note that the values of both subscriptions are not synchronized - each subscriber receives its own data
 6. Open the console and watch the log-statements
