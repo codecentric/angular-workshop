@@ -3,13 +3,13 @@
 In this exercise we will create some basic observables and subjects to experiment with the behaviour
 
 ### Exercise:
-1. Start the app via `ng start`
+1. Start the app via `ng serve`
 2. Open the `ObservableComponent` and initialize the `interval$` Observable that generates a new number every second
 3. Subscribe to the observable and
-   - log an observer name and the emitted value to the console 
+   - create a `console.log` message with an identifier for the observer and the emitted value 
    - set `intervalSubscriber1Value` to the emitted value 
-4. Subscribe a second time to the observable with a 5 second delay (by using `setTimeout()`)
-   - log an observer name and the emitted value to the console 
+4. Wait 5 seconds (by using `setTimeout()`) and subscribe a second time to the observable 
+  - create a `console.log` message with an identifier for the observer and the emitted value 
    - set `intervalSubscriber2Value` to the emitted value
 5. Note that the values of both subscriptions are not synchronized - each subscriber receives its own data
 6. Open the console and watch the log-statements
@@ -25,10 +25,10 @@ Now we do something similar with a subject
 9. Implement a method that increases the value of the subject by 1 
     - A BehaviourSubject always has exactly one value. You can read the current value of the subject from `behaviourSubject$.value`
 10. Subscribe to the subject and
-    - log an observer name and the emitted value to the console
+  - create a `console.log` message with an identifier for the observer and the emitted value
     - set `subjectSubscriber1Value` to the emitted value
 11. Increase the value of the subject and then subscribe a second time
-    - log an observer name and the emitted value to the console
+  - create a `console.log` message with an identifier for the observer and the emitted value
     - set `subjectSubscriber2Value` to the emitted value
 12. Note that both subscribers are synchronized since subjects multicast their values
 13. Implement a method `toggleSecondSubjectSubscriber()` that unsubscribes (or recreates) the second subscription
