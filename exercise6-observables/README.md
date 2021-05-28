@@ -25,10 +25,10 @@ Now we do something similar with a subject
 9. Implement a method that increases the value of the subject by 1 
     - A BehaviourSubject always has exactly one value. You can read the current value of the subject from `behaviourSubject$.value`
 10. Subscribe to the subject and
-  - create a `console.log` message with an identifier for the observer and the emitted value
+    - create a `console.log` message with an identifier for the observer and the emitted value
     - set `subjectSubscriber1Value` to the emitted value
 11. Increase the value of the subject and then subscribe a second time
-  - create a `console.log` message with an identifier for the observer and the emitted value
+    - create a `console.log` message with an identifier for the observer and the emitted value
     - set `subjectSubscriber2Value` to the emitted value
 12. Note that both subscribers are synchronized since subjects multicast their values
 13. Implement a method `toggleSecondSubjectSubscriber()` that unsubscribes (or recreates) the second subscription
