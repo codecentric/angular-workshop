@@ -37,6 +37,20 @@ Now we do something similar with a subject
 
 ### Hints:
 
+You can cancel `setTimeout()` by assigning the timeout to a variable and calling `clearTimeout(timeout)` in `onDestroy()`
+
+_____
+
+A more readable pattern to unsubscribe when the component gets destroyed is to define 
+
+```
+destroyed$: Subject<void> = new Subject()
+```
+
+and call `destroyed$.next()` within `onDestroy()`. 
+
+You can then apply `takeUntil(destroyed$)` to any observable or subject to complete it when the component gets destroyed; removing the need to unsubscribe manually
+
 ### Bonus Tasks:
 
 Inject the `HttpClient` and send some GET Requests to `http://google.com`. 
