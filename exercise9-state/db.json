@@ -1,0 +1,20 @@
+{
+  "farms": [
+    {
+      "id": 1,
+      "name": "Rinderhof",
+      "location": "Essen",
+      "description": "Dies ist ein Bauernhof, welcher für die schönsten Rinder in ganz Essen bekannt ist"
+    },
+    {
+      "id": 2,
+      "name": "Schweinezucht",
+      "location": "Dortmund",
+      "description": "Hat einen überdurchschnittlich hohen Schweinefutterverbrauch"
+    },
+    {
+      "test": "test",
+      "id": 3
+    }
+  ]
+}

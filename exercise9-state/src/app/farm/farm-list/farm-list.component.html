@@ -1,0 +1,3 @@
+<div class="content">
+  <app-farm-card routerLink="details" (click)="farmService.selectFarm(farm)" *ngFor="let farm of farmService.getFarms()" [farm]="farm"></app-farm-card>
+</div>

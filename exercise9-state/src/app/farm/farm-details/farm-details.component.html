@@ -1,0 +1,3 @@
+<app-breadcrumb></app-breadcrumb>
+<app-farm-card [farm]="farmService.getSelectedFarm()"></app-farm-card>
+<button mat-raised-button color="primary" routerLink=".." (click)="farmService.deselectFarm()">Zurück</button>
