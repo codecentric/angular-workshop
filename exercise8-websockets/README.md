@@ -1,27 +1,19 @@
-# Exercise8Websockets
+# Exercise 8 Websockets
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+We will use observables to setup a simple chat-app with websockets.
 
-## Development server
+### Exercise:
+1. Implement a `sendMessage()` method in the `WebsocketService` via `socket.emit()`
+    - make sure to use `chat-message` as event-name - this event is known to the server
+2. Implement a `getMessages()` method that returns an `Observable<string>` which emits everytime the socket receives a new `chat-message`
+    - you can use the `new Observable()` constructor for this
+    - `socket.on('chat-message', callback)` lets you react to messages received through the websocket  
+3. Subscribe to the Observable created by `getMessages()` in your `WebsocketComponent` and push new messages to the `messageList`
+4. Start the app (if you haven't already) and test if you can send and receive messages
+5. Open the app in another browser (this opens a second websocket connection). Whenever you send a message you should see it pop up in both windows. 
+6. Refactor the `WebsocketService` to store messages in a BehaviorSubject and return this from `getMessages()`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Hints:
+Create lots of log outputs in your `WebsocketService` and `WebsocketComponent`. Since the websocket communication is event-driven this will help you keep an overview and make debugging easier.  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -1,26 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import { Observable, Observer } from 'rxjs';
+import { BehaviorSubject, Observable, Observer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WebsocketService {
-  constructor(private socket: Socket) {}
+  messages$ = new BehaviorSubject<string>('');
+
+  constructor(private socket: Socket) {
+    this.socket.on('chat-message', (message: string) => {
+      console.log(`chat-message event from websocket: ${message}`);
+      this.messages$.next(message);
+    });
+  }
 
   public sendMessage(message: string) {
     console.log(`sent message via websocket: ${message}`);
-    this.socket.emit('new-message', message);
+    this.socket.emit('chat-message', message);
   }
 
-  public getMessages = () => {
-    return new Observable((observer: Observer<any>) => {
-      this.socket.on('new-message', (message: string) => {
-        console.log(`new-message event from websocket: ${message}`);
-        observer.next(message);
-      });
-    });
-  };
+  public getMessages(): BehaviorSubject<string> {
+    return this.messages$;
+  }
 }
 
 export interface Message {
