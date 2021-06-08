@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { WebsocketService } from './websocket.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-websocket',
@@ -14,10 +13,7 @@ export class WebsocketComponent implements OnInit {
   constructor(private websocketService: WebsocketService) {}
 
   ngOnInit() {
-    this.websocketService.getMessages().subscribe((message: string) => {
-      console.log(`received message via websocket: ${message}`);
-      this.messageList.push(message);
-    });
+    // TODO: react to new messages
   }
 
   public sendMessage() {
