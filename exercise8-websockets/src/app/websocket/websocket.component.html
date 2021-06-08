@@ -1,0 +1,17 @@
+<p>
+  <mat-form-field>
+    <mat-label>Nachricht</mat-label>
+    <input
+      matInput
+      [(ngModel)]="newMessage"
+      (keyup)="$event.keyCode == 13 && sendMessage()"
+    />
+  </mat-form-field>
+</p>
+
+<button mat-raised-button color="primary" (click)="sendMessage()">
+  Senden
+</button>
+
+<hr />
+<div *ngFor="let message of messageList">{{ message }}</div>
