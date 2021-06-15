@@ -1,27 +1,76 @@
-# Exercise11TemplateDrivenToReactiveForm
+# Exercise 11 to 13
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
+## Exercise 11 template driven vs. reactive forms
 
-## Development server
+In this exercise we want to look at the difference of template driven forms and the reactive forms. The goal of this task is to refactor an existing template driven form to a reactive form and add some functionalities.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Exercise:
+1. Remove the FormsModule from the imports in the AppModule and add the ReactiveFormsModule instead
+2. Create the structure for the KontaktdatenFormular in the OnInit Method with the FormBuilder
+3. Remove the ngModel and name attributes from the form elements in the HTML and use the formGroup/formControlName attributes to bind the HTML to the reactive Form
+4. Add the Validators from the HTML to the reactive form and remove the validators from the html
+5. Next we want to add the possibility to add multiple adresses
+   1. Add a FormArray around the adress form fields
+   2. Initialize the FormArray with the first adress
+   3. Add a function and a matching button to add new adresses
+   4. Use ngFor to render  all of the FormArrayElements
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Hints:
+<details><summary>How the form could be build with the FormBuilder</summary>
+  
+  ```typescript
+  this.kontaktdatenFormular = this.formBuilder.group({
+        anrede: [null],
+        vorname: [null],
+        nachname: [null],
+        strasse: [null],
+        hausnummer: [null],
+        postleitzahl: [null],
+        ort: [null],
+        email: [null],
+        telefonnr: [null],
+      });
+  ```
+</details>
+<details><summary>How the add Validators to the form</summary>
+  
+  ```typescript
+  nachname: [
+    null,
+    [
+      Validators.maxLength(10),
+      Validators.required,
+      Validators.minLength(2),
+    ],
+  ],
+  ```
+</details>
+<details><summary>How to use ngFor with a FormArray</summary>
+  
+  ```typescript
+  <ng-container formArrayName="adressen">
+      <div
+        *ngFor="let adresse of getAdressen().controls; let i = index"
+        [formGroupName]="i"
+      >
+        <h3>Adresse {{ i + 1 }}</h3>
+        <mat-form-field appearance="standard">
+          <mat-label>Straße</mat-label>
+          <input formControlName="strasse" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Hausnummer</mat-label>
+          <input formControlName="hausnummer" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Postleitzahl</mat-label>
+          <input formControlName="postleitzahl" matInput />
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Ort</mat-label>
+          <input formControlName="ort" matInput />
+        </mat-form-field></div
+    ></ng-container>
+  ```
+</details>
