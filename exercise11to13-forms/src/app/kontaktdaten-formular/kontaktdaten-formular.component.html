@@ -1,0 +1,66 @@
+<form [formGroup]="kontaktdatenFormular" class="flex-container">
+  <mat-card class="card">
+    <h1>Kontaktdaten</h1>
+    <mat-card-content>
+      <mat-form-field appearance="standard">
+        <mat-label>Anrede</mat-label>
+        <select formControlName="anrede" matNativeControl>
+          <option value="HERR">Herr</option>
+          <option value="FRAU">Frau</option>
+          <option value="DIVERS">Divers</option>
+        </select>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Vorname</mat-label>
+        <input formControlName="vorname" matInput />
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Nachname</mat-label>
+        <input formControlName="nachname" matInput />
+      </mat-form-field>
+      <ng-container formArrayName="adressen">
+        <div
+          *ngFor="let adresse of getAdressen().controls; let i = index"
+          [formGroupName]="i"
+        >
+          <h3>Adresse {{ i + 1 }}</h3>
+          <mat-form-field appearance="standard">
+            <mat-label>Straße</mat-label>
+            <input formControlName="strasse" matInput />
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Hausnummer</mat-label>
+            <input formControlName="hausnummer" matInput />
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Postleitzahl</mat-label>
+            <input formControlName="postleitzahl" matInput />
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Ort</mat-label>
+            <input formControlName="ort" matInput />
+          </mat-form-field></div
+      ></ng-container>
+      <mat-form-field appearance="standard">
+        <mat-label>Telefonnummer</mat-label>
+        <input formControlName="telefonnr" matInput />
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Emailadresse</mat-label>
+        <input email formControlName="email" matInput />
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+  <button mat-raised-button color="primary" (click)="addAdresse()">
+    Adresse hinzufügen
+  </button>
+  <button
+    [disabled]="kontaktdatenFormular?.invalid"
+    mat-raised-button
+    color="primary"
+    (click)="formSenden()"
+  >
+    Formular senden
+  </button>
+</form>
+<pre>{{ gesendetesObjekt }}</pre>
