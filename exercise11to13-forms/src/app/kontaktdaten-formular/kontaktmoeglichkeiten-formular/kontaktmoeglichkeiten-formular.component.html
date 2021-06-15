@@ -1,0 +1,10 @@
+<ng-container [formGroup]="parentForm">
+  <mat-form-field appearance="standard">
+    <mat-label>Telefonnummer</mat-label>
+    <input formControlName="telefonnr" matInput />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Emailadresse</mat-label>
+    <input email formControlName="email" matInput />
+  </mat-form-field>
+</ng-container>

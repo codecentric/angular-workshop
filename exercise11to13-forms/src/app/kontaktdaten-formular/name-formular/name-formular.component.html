@@ -1,0 +1,17 @@
+<ng-container [formGroup]="parentForm">
+  <mat-form-field appearance="standard">
+    <mat-label>Anrede</mat-label>
+    <select formControlName="anrede" matNativeControl>
+      <option value="HERR">Herr</option>
+      <option value="FRAU">Frau</option>
+      <option value="DIVERS">Divers</option>
+    </select>
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Vorname</mat-label>
+    <input formControlName="vorname" matInput />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Nachname</mat-label>
+    <input formControlName="nachname" matInput /> </mat-form-field
+></ng-container>

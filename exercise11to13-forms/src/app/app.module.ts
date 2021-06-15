@@ -8,9 +8,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NameFormularComponent } from './kontaktdaten-formular/name-formular/name-formular.component';
+import { AdresseFormularComponent } from './kontaktdaten-formular/adresse-formular/adresse-formular.component';
+import { KontaktmoeglichkeitenFormularComponent } from './kontaktdaten-formular/kontaktmoeglichkeiten-formular/kontaktmoeglichkeiten-formular.component';
 
 @NgModule({
-  declarations: [AppComponent, KontaktdatenFormularComponent],
+  declarations: [AppComponent, KontaktdatenFormularComponent, NameFormularComponent, AdresseFormularComponent, KontaktmoeglichkeitenFormularComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

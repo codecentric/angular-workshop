@@ -70,6 +70,10 @@ export class KontaktdatenFormularComponent implements OnInit {
     return this.kontaktdatenFormular.get('adressen') as FormArray;
   }
 
+  getAdresseAt(index: number): FormGroup {
+    return this.getAdressen().at(index) as FormGroup;
+  }
+
   gesendetesObjekt = '';
 
   formSenden() {
