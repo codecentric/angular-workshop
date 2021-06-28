@@ -32,6 +32,8 @@ Now we do something similar with a subject
     - set `subjectSubscriber2Value` to the emitted value
 12. Note that both subscribers are synchronized since subjects multicast their values
 13. Implement a method `toggleSecondSubjectSubscriber()` that unsubscribes (or recreates) the second subscription
+    - unsubscribe if the second subscription is currently active
+    - create a new subscription if there currently is no second subscription 
 14. Use the UI to observe that the subject immediately receives the current value of the `BehaviourSubject` when a new subscription is created
 15. Unsubscribe the subject in the `OnDestroy()` method
 

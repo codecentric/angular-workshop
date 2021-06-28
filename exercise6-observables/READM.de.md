@@ -32,6 +32,8 @@ Jetzt machen wir etwas Ähnliches mit einem Subject
     - setzen Sie `subjectSubscriber2Value` auf den gesendeten Wert
 12. Beachten Sie, dass beide Subscriber synchronisiert sind, da subjects ihre Werte per Multicast übertragen
 13. Implementieren Sie eine Methode `toggleSecondSubjectSubscriber()`, die den zweiten Subscriber abmeldet (oder neu erstellt)
+  - unsubscribe falls die zweite Subscriptions gerade aktiv ist
+  - Erstellen Sie eine neue Subscription, falls gerade keine zwei Subscriptions aktiv sind
 14. Verwenden Sie die Benutzeroberfläche, um zu beobachten, dass das Subject sofort den aktuellen Wert des `BehaviourSubject` erhält, wenn eine neue Subscription erstellt wird
 15. Melden Sie das Subject in der Methode `OnDestroy()` ab
 
@@ -41,7 +43,7 @@ Sie können `setTimeout()` abbrechen, indem Sie den Timeout einer Variablen zuwe
 
 _____
 
-Ein mMster für das unsubscribe in der OnDestroy-Methode ist wie folgt:
+Ein Muster für das unsubscribe in der OnDestroy-Methode ist wie folgt:
 
 ```
 destroyed$: Subject<void> = new Subject()

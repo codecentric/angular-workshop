@@ -1,6 +1,6 @@
 # Übung 7 RxJS-Operatoren
 
-Diese Übung beinhaltet einen `UserService` und einen `AddressService`, die sich so verhalten, als würden sie eine externe API konsumieren.
+Diese Übung beinhaltet einen `CustomerService` und einen `AddressService`, die sich so verhalten, als würden sie eine externe API konsumieren.
 
 Ihre Aufgabe ist es, mit Hilfe von RxJS-Operatoren die zur Benutzernummer passende Adresse aus der Benutzereingabe zu holen.
 
@@ -13,8 +13,10 @@ Ihre Aufgabe ist es, mit Hilfe von RxJS-Operatoren die zur Benutzernummer passen
 5. Aufräumen des Codes durch Verschieben "komplexer" Lambda-Funktionen in private Methoden. Die gesamte Logik in `ngOnInit` zu behandeln, wird sehr schnell unleserlich. 
 
 ### Hinweise:
-Die Methoden der Dienste werfen (rxjs)Fehler, wenn keine Daten gefunden werden. 
-Achten Sie darauf, diese zu behandeln, da jede Subscription nach dem Empfang eines unbehandelten Fehlers beendet wird.
+Stellen Sie sicher, dass die Unterschiede zwischen `map()` and `switchMap()` verstanden wurden 
 
 ### Bonus-Aufgaben:
+Nutzen Sie die alternativen Implementierungen im `CustomerService` und `AddressService`, die einen Error werfen, wenn keine Daten vorhanden sind.
+ 
+Achten Sie darauf, diese Errors zu behandeln, da jede Subscription nach dem Empfang eines unbehandelten Fehlers beendet wird.
 
