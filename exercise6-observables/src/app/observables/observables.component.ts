@@ -25,7 +25,6 @@ export class ObservablesComponent implements OnInit, OnDestroy {
 
   subjectSubscription2: Subscription;
   subjectSubscriber2Value: number;
-  isSecondSubscriptionActive = true;
 
   constructor(private readonly http: HttpClient) {}
 
@@ -81,15 +80,12 @@ export class ObservablesComponent implements OnInit, OnDestroy {
   }
 
   toggleSecondSubjectSubscriber() {
-    if (this.isSecondSubscriptionActive) {
-      console.log('unsubscribed from subject!');
+    if (!this.subjectSubscription2.closed) {
       this.subjectSubscription2.unsubscribe();
       this.subjectSubscriber2Value = 0;
-      this.isSecondSubscriptionActive = false;
     } else {
       console.log('created new subscription');
       this.addSecondSubjectSubscription();
-      this.isSecondSubscriptionActive = true;
     }
   }
 
