@@ -26,7 +26,11 @@ export class AddressService {
 
     return address
       ? of(address).pipe(delay(500))
-      : throwError('address not found').pipe(delay(100));
+      : of(null).pipe(delay(100));
+    // TODO: Bonus-Task: use the following implementation and add error-handling in the AppComponent
+    // return address
+    //   ? of(address).pipe(delay(500))
+    //   : throwError('address not found').pipe(delay(100));
   }
 }
 

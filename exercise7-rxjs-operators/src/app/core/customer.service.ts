@@ -23,7 +23,12 @@ export class CustomerService {
 
     return customer
       ? of(customer).pipe(delay(500))
-      : throwError('user not found').pipe(delay(100));
+      : of(null).pipe(delay(100));
+
+    // TODO: Bonus-Task: use the following implementation and add error-handling in the AppComponent
+    // return customer
+    //   ? of(customer).pipe(delay(500))
+    //   : throwError('user not found').pipe(delay(100));
   }
 }
 

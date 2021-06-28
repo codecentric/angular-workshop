@@ -20,9 +20,20 @@ export class AppComponent implements OnInit {
     private readonly addressService: AddressService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //TODO: initialize the required observables:
 
-  updateCustomerNumber(customerNumber: string) {}
+    // this.validatedCustomerNumber$ = ...
+
+    // this.customer$ = ...
+
+    // this.address$ = ...
+  }
+
+
+  updateCustomerNumber(customerNumber: string) {
+    //TODO: update the customerNumber$ subject
+  }
 
   private isNumeric(input: string) {
     return !isNaN(+input);
