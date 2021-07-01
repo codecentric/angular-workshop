@@ -15,13 +15,13 @@ import { selectFarmAction } from 'src/app/ngrx/farm/farm.actions';
 export class FarmListComponent implements OnInit {
   farmList$: Observable<Farm[]>;
 
-  constructor(public readonly store: Store<AppState>) {
-    this.farmList$ = store.pipe(map((state) => selectFarms(state)));
-  }
+  constructor(public readonly store: Store<AppState>) {}
 
   selectFarm(farm: Farm) {
     this.store.dispatch(selectFarmAction(farm));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.farmList$ = this.store.select(selectFarms);
+  }
 }

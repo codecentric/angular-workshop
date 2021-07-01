@@ -15,13 +15,13 @@ import { map } from 'rxjs/operators';
 export class FarmDetailsComponent implements OnInit {
   selectedFarm$: Observable<Farm>;
 
-  constructor(public readonly store: Store<AppState>) {
-    this.selectedFarm$ = store.pipe(map((state) => selectSelectedFarm(state)));
-  }
+  constructor(public readonly store: Store<AppState>) {}
 
   deSelectFarm() {
     this.store.dispatch(deselectFarmAction());
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.selectedFarm$ = this.store.select(selectSelectedFarm);
+  }
 }

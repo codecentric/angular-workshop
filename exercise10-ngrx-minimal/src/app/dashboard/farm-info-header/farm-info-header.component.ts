@@ -14,11 +14,11 @@ import { map } from 'rxjs/operators';
 export class FarmInfoHeaderComponent implements OnInit {
   farmList$: Observable<Farm[]>;
 
-  constructor(public readonly store: Store<AppState>) {
-    this.farmList$ = store.pipe(map((state) => selectFarms(state)));
-  }
-  ngOnInit(): void {}
+  constructor(public readonly store: Store<AppState>) {}
 
+  ngOnInit(): void {
+    this.farmList$ = this.store.select(selectFarms);
+  }
   getUniqueLocations(farms: Farm[]) {
     return [...new Set(farms.map((farm) => farm.location))];
   }
