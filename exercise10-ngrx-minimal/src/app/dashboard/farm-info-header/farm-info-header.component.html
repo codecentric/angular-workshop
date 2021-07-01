@@ -1,0 +1,4 @@
+<p *ngIf="farmList$ | async as farmList">
+  Bisher wurden {{ farmList.length }} Höfe in insgesamt
+  {{ getUniqueLocations(farmList).length }} Standorten erfasst
+</p>
