@@ -1,4 +1,5 @@
-import { AppState } from './ngrx/farm/farm.selectors';
+import { AppState, selectSelectedFarm } from './ngrx/farm/farm.selectors';
+
 import { Component } from '@angular/core';
 import { Farm } from './shared/models/farm';
 import { Observable } from 'rxjs';
@@ -13,5 +14,7 @@ import { map } from 'rxjs/operators';
 export class AppComponent {
   selectedFarm$: Observable<Farm>;
 
-  constructor(public readonly store: Store<AppState>) {}
+  constructor(public readonly store: Store<AppState>) {
+    this.selectedFarm$ = store.pipe(map((state) => selectSelectedFarm(state)));
+  }
 }

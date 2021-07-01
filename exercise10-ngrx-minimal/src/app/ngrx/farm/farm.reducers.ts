@@ -1,4 +1,9 @@
 import { Action, createAction, createReducer, on, props } from '@ngrx/store';
+import {
+  addFarmAction,
+  deselectFarmAction,
+  selectFarmAction,
+} from './farm.actions';
 
 import { Farm } from '../../shared/models/farm';
 
@@ -26,13 +31,25 @@ const initialState: FarmState = {
 };
 
 const _farmReducer = createReducer(
-  initialState
-  /* on(ACTION, (state, props) => {
+  initialState,
+  on(addFarmAction, (state, props) => {
     return {
       ...state,
-      farms: [...]
-    }
-  }), */
+      farms: [...state.farms, props],
+    };
+  }),
+  on(selectFarmAction, (state, props) => {
+    return {
+      ...state,
+      selectedFarm: props,
+    };
+  }),
+  on(deselectFarmAction, (state) => {
+    return {
+      ...state,
+      selectedFarm: null,
+    };
+  })
 );
 
 export function farmReducer(state: FarmState | undefined, action: Action) {

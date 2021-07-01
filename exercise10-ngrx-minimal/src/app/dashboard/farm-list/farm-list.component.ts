@@ -1,9 +1,11 @@
+import { AppState, selectFarms } from '../../ngrx/farm/farm.selectors';
 import { Component, OnInit } from '@angular/core';
 
-import { AppState } from '../../ngrx/farm/farm.selectors';
 import { Farm } from '../../shared/models/farm';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
+import { selectFarmAction } from 'src/app/ngrx/farm/farm.actions';
 
 @Component({
   selector: 'app-farm-list',
@@ -13,9 +15,13 @@ import { Store } from '@ngrx/store';
 export class FarmListComponent implements OnInit {
   farmList$: Observable<Farm[]>;
 
-  constructor(public readonly store: Store<AppState>) {}
+  constructor(public readonly store: Store<AppState>) {
+    this.farmList$ = store.pipe(map((state) => selectFarms(state)));
+  }
 
-  selectFarm(farm: Farm) {}
+  selectFarm(farm: Farm) {
+    this.store.dispatch(selectFarmAction(farm));
+  }
 
   ngOnInit(): void {}
 }
