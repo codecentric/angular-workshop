@@ -15,7 +15,7 @@ In this Exercise we want to take a look at the NgRx-Store. We will implement som
 </details>
 
 
-1. Create the Reducer
+2. Create the Reducer
    - create the reducer by calling the `createReducer` function with the initial state and all actions which should be handled in the reducer
       - <details><summary>Hint: Structure of the Reducer</summary>
         For each action we call the `on`-function to define how the reducer should react on this specific action.
@@ -35,7 +35,7 @@ In this Exercise we want to take a look at the NgRx-Store. We will implement som
         ```
 </details>
 
-1. Create Selectors
+3. Create Selectors
 - In the Selectors-File we have a feature-selector for our farms state
 - Based on the feature-selector we add fine grained selectors for the needed fields in the farm-State
   - <details><summary>Hint: How your selector can look like</summary>
@@ -51,12 +51,12 @@ In this Exercise we want to take a look at the NgRx-Store. We will implement som
     ```
   </details>
 
-1. Using the Store in our Application
+4. Using the Store in our Application
 - We can now use the Store to load and alter the state of our Application. We start with loading the list of farms and adding new farms
 - Change adding new Farms
   - `FarmFormularComponent`: Change the `addFarm`-Method to dispatch and `addFarmAction` with the correct Payload
 - Change loading the Farms
-  - `FarmListComponent`: Use our `selectFarms`-Selector to fill the farmList in the constructor
+  - `FarmListComponent`: Use our `selectFarms`-Selector to fill the farmList in the OnInit
   - <details><summary>Hint: How to use a selector</summary>
   
     ```typescript
@@ -68,14 +68,14 @@ In this Exercise we want to take a look at the NgRx-Store. We will implement som
 
     - Use the farmList in the HTML-Code with an async-pipe
 
-1. Replace the other usages of the FarmService accordingly
+5. Replace the other usages of the FarmService accordingly
     - `FarmListComponent`: Dispatch the SelectFarmAction
-    -  `FarmInfoHeaderCompontn`:  Use our `selectFarms`-Selector to fill the farmList in the constructor
-    -  `FarmDetailsComponent`: :  Use our `selectSelectedFarms`-Selector to fill the farmList in the constructor, add the `deselectFarm` Action to the matching function
-    - `AppComponent`: :  Use our `selectSelectedFarms`-Selector to fill the farmList in the constructor
-2. Delete the FarmService
+    -  `FarmInfoHeaderCompontn`:  Use our `selectFarms`-Selector to fill the farmList in the OnInit
+    -  `FarmDetailsComponent`: :  Use our `selectSelectedFarms`-Selector to fill the farmList in the OnInit, add the `deselectFarm` Action to the matching function
+    - `AppComponent`: :  Use our `selectSelectedFarms`-Selector to fill the farmList in the OnInit
+6. Delete the FarmService
 
-Next we can play around a little with the Devtools
+### Next we can play around a little with the Devtools
 1. Install the [redux-devtools](https://github.com/reduxjs/redux-devtools) for your browser
 2. Open the Application
 3. Open the Browser Devtools and switch to the redux tab. We should se the inital event and state.

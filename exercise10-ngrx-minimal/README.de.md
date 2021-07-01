@@ -16,7 +16,7 @@ Die Definitionen für NgRx werden alle im NgRx-Ordner angelegt. Die Passenden Da
 </details>
 
 
-1. Erzeugen des Reducers
+2. Erzeugen des Reducers
    - Erzeugen Sie den Reducer durch Aufruf der Funktion `createReducer` mit dem Anfangszustand und allen Aktionen, die im Reducer behandelt werden sollen
       - <details><summary>Hinweis: Aufbau des Reducers</summary>
         Für jede Aktion rufen wir die `on'-Funktion auf, um zu definieren, wie der Reducer auf diese spezielle Aktion reagieren soll.
@@ -36,7 +36,7 @@ Die Definitionen für NgRx werden alle im NgRx-Ordner angelegt. Die Passenden Da
         ```
 </details>
 
-1. Selektoren erstellen
+3. Selektoren erstellen
 - In der Selectors-Datei haben wir einen Feature-Selektor für unseren Farm-State
 - Basierend auf dem Feature-Selektor fügen wir feinkörnige Selektoren für die benötigten Felder im Farm-Status hinzu
   - <details><summary>Hinweis: So kann Ihr Selektor aussehen</summary>
@@ -52,12 +52,12 @@ Die Definitionen für NgRx werden alle im NgRx-Ordner angelegt. Die Passenden Da
     ```
   </details>
 
-1. Verwendung des Stores in unserer Anwendung
+4. Verwendung des Stores in unserer Anwendung
 - Wir können nun den Store verwenden, um den Zustand unserer Anwendung zu laden und zu ändern. Wir beginnen mit dem Laden der Liste der Farmen und dem Hinzufügen neuer Farmen
 - Hinzufügen neuer Farmen ändern
   - `FarmFormularComponent`: Ändern Sie die `addFarm`-Methode auf dispatch und `addFarmAction` mit der richtigen Payload
 - Ändern Sie das Laden der Farmen
-  - `FarmListComponent`: Verwenden Sie unseren `selectFarms`-Selektor, um die FarmList im Konstruktor zu füllen
+  - `FarmListComponent`: Verwenden Sie unseren `selectFarms`-Selektor, um die FarmList im OnInit zu füllen
   - <details><summary>Hinweis: Wie man einen Selektor verwendet</summary>
   
     ````Typescript
@@ -69,14 +69,14 @@ Die Definitionen für NgRx werden alle im NgRx-Ordner angelegt. Die Passenden Da
 
     - Verwenden Sie die farmList im HTML-Code mit einer async-pipe
 
-1. Ersetzen Sie die anderen Verwendungen des FarmService entsprechend
+5. Ersetzen Sie die anderen Verwendungen des FarmService entsprechend
     - `FarmListComponent`: Dispatch der SelectFarmAction
-    - `FarmInfoHeaderComponent`:  Verwenden Sie unseren `selectFarms`-Selektor, um die FarmList im Konstruktor zu füllen
-    - `FarmDetailsComponent`: :  Verwenden Sie unseren `selectSelectedFarms`-Selektor, um die FarmList im Konstruktor zu füllen, fügen Sie die `deselectFarm`-Aktion zur passenden Funktion hinzu
-    - `AppComponent`: :  Verwenden Sie unseren `selectSelectedFarms`-Selektor, um die farmList im Konstruktor zu füllen
-2. Löschen Sie den FarmService
+    - `FarmInfoHeaderComponent`:  Verwenden Sie unseren `selectFarms`-Selektor, um die FarmList im OnInit zu füllen
+    - `FarmDetailsComponent`: :  Verwenden Sie unseren `selectSelectedFarms`-Selektor, um die FarmList im OnInit zu füllen, fügen Sie die `deselectFarm`-Aktion zur passenden Funktion hinzu
+    - `AppComponent`: :  Verwenden Sie unseren `selectSelectedFarms`-Selektor, um die farmList im OnInit zu füllen
+6. Löschen Sie den FarmService
 
-Als nächstes können wir ein wenig mit den Devtools herumspielen
+### Als nächstes können wir ein wenig mit den Devtools herumspielen
 1. Installieren Sie die [redux-devtools](https://github.com/reduxjs/redux-devtools) für Ihren Browser
 2. Öffnen Sie die Anwendung
 3. Öffnen Sie die Browser Devtools und wechseln Sie zur Registerkarte redux. Wir sollten das initiale Ereignis und den Zustand sehen.
