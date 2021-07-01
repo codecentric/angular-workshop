@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <span>Modules Exercise</span>
+  <span class="toolbar-spacer"></span>
+</mat-toolbar>
+
+<div class="app-content">
+  <ng-container *ngIf="selectedFarm$ | async">
+    <app-farm-details></app-farm-details>
+  </ng-container>
+  <ng-container *ngIf="!(selectedFarm$ | async)">
+    <app-farm-info-header></app-farm-info-header>
+    <app-farm-list></app-farm-list>
+    <app-farm-formular></app-farm-formular>
+  </ng-container>
+</div>
+
