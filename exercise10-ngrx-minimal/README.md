@@ -60,9 +60,7 @@ In this Exercise we want to take a look at the NgRx-Store. We will implement som
   - <details><summary>Hint: How to use a selector</summary>
   
     ```typescript
-    this.farmList$ = store.pipe(map(
-        state => selectFarms(state)
-    ))
+    this.farmList$ = this.store.select(selectSelectedFarm);
     ```
   </details>
 

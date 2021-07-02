@@ -61,9 +61,7 @@ Die Definitionen für NgRx werden alle im NgRx-Ordner angelegt. Die Passenden Da
   - <details><summary>Hinweis: Wie man einen Selektor verwendet</summary>
   
     ````Typescript
-    this.farmList$ = store.pipe(map(
-        state => selectFarms(state)
-    ))
+    this.farmList$ = this.store.select(selectSelectedFarm);
     ```
   </details>
 
